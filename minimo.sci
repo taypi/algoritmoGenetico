@@ -33,7 +33,7 @@ function result = minimo();
 			    newPop(j+nIndiv/2,k) = filhos(2,k);
             end
 		end
-		populacao = filhos;
+		populacao = newPop;
 		[maxApt,aptRel] = aptidao(populacao, tamCrom);
 	end
 
