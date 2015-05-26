@@ -1,8 +1,11 @@
-function result = minimo();
+function [result] = genetico();
+    clear;
 	//======== 0 - Configuracoes iniciais ============
-	tamCrom = 9;
-	taxaCross = 65;
-	taxaMutacao = 1;
+    //it = 0;
+    //desv = 0;
+	tamCrom = 14;
+	taxaCross = 80;
+	taxaMutacao = 2;
 	nIndiv = 50;
     for i=1:nIndiv
         for j=1:tamCrom*2
@@ -14,9 +17,9 @@ function result = minimo();
 	populacao = popInicial(nIndiv, tamCrom);
 
 	//======== 2 - Avaliar os indivíduos ============
-	[maxApt,aptRel] = aptidao(populacao, tamCrom);
+	[xm, ym, maxApt,aptRel] = aptidao(populacao, tamCrom);
 
-	for i=1:200
+    for i=1:50
 		for j=1:nIndiv/2
 			//======== 3 - Seleção por roleta ============
 			indSort = roleta(aptRel);
@@ -34,9 +37,6 @@ function result = minimo();
             end
 		end
 		populacao = newPop;
-		[maxApt,aptRel] = aptidao(populacao, tamCrom);
+		[result(1,2), result(1,3), result(1,1),aptRel] = aptidao(populacao, tamCrom);
 	end
-
-	result = maxApt;
-
 endfunction

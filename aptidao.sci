@@ -1,4 +1,4 @@
-function [maxApt,aptRel] = aptidao(populacao, tamCrom);
+function [xm, ym, maxApt, aptRel, desv] = aptidao(populacao, tamCrom);
 	for i=1:size(populacao,1)
 		for k=1:tamCrom
 			x(i) = 0;
@@ -30,5 +30,8 @@ function [maxApt,aptRel] = aptidao(populacao, tamCrom);
 		aptRel(i) = w(i)/aptTotal*100;
 	end
 
-	maxApt = min(apt);
+	[maxApt indice] = min(apt);
+    xm = x(indice)*250;
+    ym = y(indice)*250;
+    desv = stdev(apt);
 endfunction
