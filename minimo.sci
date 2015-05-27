@@ -1,8 +1,6 @@
 function [result] = genetico();
     clear;
 	//======== 0 - Configuracoes iniciais ============
-    //it = 0;
-    //desv = 0;
 	tamCrom = 14;
 	taxaCross = 80;
 	taxaMutacao = 2;
